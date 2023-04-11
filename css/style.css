@@ -1,0 +1,201 @@
+/*Se declaran variables, en este caso para utilizar los colores*/
+:root {
+    --primario: #7ABE47;
+    --secundario: #ffc845;
+    --negro: #000000;
+    --claro: #ffffff;
+    --gris: #eeeeee;
+    --oscuro: #57a42b;
+    --padding: 1rem;
+    --pading2: 2rem;
+}
+/*Elimina la parte de los padding , respetando el tamaño */
+html{
+    box-sizing: border-box;
+}
+/*Con el var(nombre_variable)  se manda a llamar las variables */
+body{
+    background-color: var(--gris);
+    font-family:'Roboto', sans-serif;
+}
+/*Global se aplica en mas de un lugar*/
+.contenedor{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+img{
+    max-width: 100%;
+}
+h1,h2,h3,h4{
+    font-weight: 300;
+    margin: 0 auto;
+}
+h1{
+    font-size: 2.4rem;/*Tamaño del texto*/
+}
+h2{
+    font-size: 2.2rem;/*Tamaño del texto*/
+}
+h3{
+    font-size: 2rem;/*Tamaño del texto*/
+}
+p{
+    line-height: 2rem;
+    font-size: 1.2rem;/*Tamaño del texto*/
+    font-weight: 300;
+}
+.boton{
+    background-color: var(--primario);
+    display: block;
+    padding: var(--padding);
+    text-align: center;/*Centra el texto*/
+    color: var(--claro);
+    /*Convierte el texto a Mayusculas*/
+    text-transform: uppercase;
+    text-decoration: none;/*Elimina la decoracion*/
+    border: 1px solid var(--primario);
+    transition: all .5s ease-in-out; /*Efect en el contenedor*/
+}
+.boton:hover{
+    background-color: var(--claro);
+    color: var(--primario);
+}
+
+.header{
+    margin-top: 2rem;/*Espacio en el margen*/
+    background-color: var(--primario);
+    padding: var(--padding);
+}
+/*Grid container (contenedor)*/
+.header .barra{
+    display: grid;/*Utilizar la propiedad grid*/
+    grid-template-rows: repeat(2, auto);/*divide en dos filas al container*/
+    grid-row-gap: 2rem; /*Separacion entre los elementos */
+    justify-content: center;/*centra el contenido de los elementos*/
+}
+
+.header .menu{
+    display:  grid;/*Utilizar la propiedad grid*/
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr ) );/*A comoda los elementos */
+}
+
+.header .menu a{
+    text-align: center;/*Centra el texto*/
+    color: var(--claro);
+    text-decoration: none;/*Elimina la decoracion*/
+    font-size: 1.4rows;/*Tamaño del texto*/
+}
+@media(min-width: 992px){
+    .header .barra{
+        grid-template-columns: 30% 1fr 30%;
+        justify-content: space-around;/*Los items flex se alinean uniformemente de tal manera que el espacio entre dos items adyacentes es el mismo*/
+        grid-template-rows: unset;/*Elimina los estilos de las filas */
+    }
+    .header .menu{
+        grid-column: 3/4;/*Es para indicar de que el espacio*/
+        display: grid;/*Utiliza la propiedad grid*/
+        align-content: center;/*Centra el contenedor*/
+    }
+}
+/*Estilo de Nosotros */
+.nosotros{
+    text-align: center;/*Centra el texto*/
+    margin-top: 2rem;/*Espacio en el margen*/
+}
+@media (min-width: 992px){ /*Resolucion*/
+    .nosotros{
+        display: grid; /*Utiliza la propiedad grid*/
+        grid-template-columns: repeat(2, 1fr);/*Divide el contenedor en 2 columnas*/
+        grid-column-gap: 2rem;/*Separacion entre los elementos */
+        text-align: left;/*Alinea a la izquierda el texto */
+    }
+}
+.contenido-nosotros{
+    display: grid;/*Utilizar la propiedad grid*/
+    align-content: center;/*Centra el contenedor*/
+}
+/*Estilo para los Anuncios*/
+.venta{
+    display: grid;/*Utilizar la propiedad grid*/
+    grid-template-columns: repeat(2, 1fr);/*Divide el contenedor en 2 columnas*/
+    grid-template-rows: repeat(3, auto);/*Divide el contenedor en 3 filas*/
+    grid-gap: 1rem;/*Separacion entre los elementos */
+}
+.venta img{
+    width: 100%; /*Tamaño de la imagen*/
+}
+.destacada {
+    grid-column: 1 / 3;
+    grid-template-columns: repeat(2, 1fr);
+    display: grid;/*Utilizar la propiedad grid*/
+    grid-gap: 1rem;/*Separacion entre los elementos */
+}
+@media(min-width: 768px){
+    .venta{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, auto);
+    }
+}
+.card{
+    background-color: var(--claro);
+    padding: var(--padding);
+    border: 1px solid rgb(199, 199, 199);/*Coloca un borde*/
+}
+.card p {
+    font-size: .9rem;/*Tamaño del texto*/
+    line-height: 1.8rem; /*Separacion entre letras*/
+}
+.anuncio{
+    display: grid;/*Utilizar la propiedad grid*/
+}
+.anuncio .precio{
+    font-size: 1.4rem;/*Tamaño del texto*/
+    font-weight: 400;
+}
+.precio span{
+    font-weight: 300;
+    color: var(--primario);
+}
+/*Estilo para el Footer*/
+.footer{
+    background-color: var(--primario);
+    margin-top: var(--pading2);/*Espacio en el margen*/
+    padding-top: var(--pading2);/*Espacio de la parte superior*/
+    color: var(--claro);
+}
+@media (min-width:768px){
+    .footer .contenedor{
+        display: grid;/*Utilizar la propiedad grid*/
+        grid-template-columns: 30% 20% 2fr;
+        grid-column-gap: 2rem;/*Separacion entre los elementos */
+    }
+}
+.footer.widget h3{
+    margin-bottom: 2rem; /*margen de la parte de abajo*/
+}
+.footer .navegacion a { 
+    display: block;/*Se Utiliza para que se muestre un elemento */
+    color: var(--claro);
+    font-size: 1.4rem;/*Tamaño del texto*/
+    margin-bottom: 1rem; /*margen de la parte de abajo*
+    text-decoration: none;/*Elimina la decoracion*/
+}
+.footer .contenedor-casas{
+    display: grid;/*Utilizar la propiedad grid*/
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;/*Separacion entre los elementos */
+}
+.footer .casa {
+    display: grid;/*Utilizar la propiedad grid*/
+    grid-template-columns: repeat(2, 1fr);/*Divide el contenedor en 2 columnas*/
+    grid-gap: 2 rem;/*Separacion entre los elementos */
+}
+.footer .casa p {
+    margin: 0;/*Establece el margen para los cuatro lados*/
+}
+.copyright{
+    background-color: var(--oscuro);
+    margin: 0;/*Establece el margen para los cuatro lados*/
+    text-align: center;/*Centra el texto*/
+    padding: var(--padding);
+}
